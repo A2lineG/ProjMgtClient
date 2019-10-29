@@ -1,0 +1,59 @@
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <div class="row m-b-sm m-t-sm">
+                        <div class="col-md-9">
+                            <div class="input-group"><input type="text" placeholder="Search..." class="input-sm form-control"> <span class="input-group-btn">
+                                <button type="button" class="btn btn-sm btn-primary">Go !</button>
+                                <button (click)="toggleFilterEvent()" class="btn btn-primary btn-sm" type="button"><i class="fa fa-filter"></i></button>
+                                </span></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="ibox-tools">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary btn-sm" type="button" [routerLink]="['/new']">Create new project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <div class="project-list">
+
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr *ngFor="let p of projects">
+                                    <td class="project-status">
+                                        <span class="label">Closed</span>
+                                    </td>
+                                    <td class="project-title">
+                                        <a [routerLink]="[p.projectId]" >{{ p.projectName }}</a>
+                                        <br/>
+                                        <small>Created {{ p.dateCreation | date: 'dd.MM.yyyy' }}</small>
+                                    </td>
+                                    <td class="project-completion">
+                                        <small>{{ p.beginDate | date: 'dd.MM.yyyy' }} - {{ p.endDate | date: 'dd.MM.yyyy' }}</small>
+                                        <div class="progress progress-mini">
+                                            <div style="width: 100%;" class="progress-bar"></div>
+                                        </div>
+                                    </td>
+                                    <!-- <td class="project-people">
+                                        <a href=""><img alt="image" class="img-circle" src="assets/images/a3.jpg"></a>
+                                        <a href=""><img alt="image" class="img-circle" src="assets/images/a1.jpg"></a>
+                                    </td> -->
+                                    <td class="project-actions">
+                                        <a class="btn btn-white btn-sm" [routerLink]="['edit', p.projectId]"><i class="fa fa-pencil"></i> Edit </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

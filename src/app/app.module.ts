@@ -4,6 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ProjectsModule } from './projects/projects.module';
+import { LayoutsModule } from './components/common/layouts/layouts.module';
+import { UserClient, API_BASE_URL } from 'services/Api';
+import { LoginService } from './login/login.service';
+import { environment as ENV } from '../environments/environment';
+import { AuthGuard } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +18,17 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    LayoutsModule,
+    ProjectsModule
   ],
-  providers: [],
+  providers: [
+    //ProjectClient,
+    UserClient,
+    LoginService,
+    { provide: API_BASE_URL, useValue: ENV.API_BASE_URL },
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
