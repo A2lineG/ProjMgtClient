@@ -31,7 +31,7 @@
     "metismenu": "^2.5.0",
     "ngx-bootstrap": "^2.0.2",
     "ngx-date-picker": "^0.0.24",
-    "npm": "^5.7.1",
+    "npm": "^6.13.4",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
